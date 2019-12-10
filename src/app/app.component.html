@@ -1,1 +1,14 @@
 <h1>Policlinica App</h1>
+
+
+    <full-calendar
+    defaultView="dayGridMonth"
+    [plugins]="calendarPlugins"
+    [weekends]="false"
+    [events]="[
+      { title: 'Fisoterapia', date: '2019-12-11' },
+      { title: 'Dentista', date: '2019-12-12' }
+    ]"
+  ></full-calendar>
+
+
