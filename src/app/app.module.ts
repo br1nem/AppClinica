@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FullCalendarModule } from '@fullcalendar/angular';
+import {FullCalendarModule} from '@fullcalendar/angular';
 import { CalendarModule } from './calendar/calendar.module';
 import { CalendarGridComponentComponent } from './calendar/calendar-grid-component/calendar-grid-component.component';
 
@@ -17,7 +17,7 @@ import { CalendarGridComponentComponent } from './calendar/calendar-grid-compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
     FullCalendarModule,
     CalendarModule
   ],
