@@ -44,11 +44,14 @@ export class ApiService {
   }
 
   public getEmployeeById(id: number) {
-    return this.httpClient.get(`${this.localUrl}/employees/employee/${id}`);
+
+    return this.httpClient.post(`${this.localUrl}/employees/employee/search`, {filter: {EMPLOYEE_ID: id},
+    columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
   }
 
   public getEmployees(url?: string) {
-    return this.httpClient.get(`${this.localUrl}/employees/employee`, {headers: this.headers});
+    return this.httpClient.post(`${this.localUrl}/employees/employee/search`,
+    {columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
   }
 
   public getContacts(busqueda) {
