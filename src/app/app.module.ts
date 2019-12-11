@@ -7,17 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import { CalendarModule } from './calendar/calendar.module';
 import { CalendarGridComponentComponent } from './calendar/calendar-grid-component/calendar-grid-component.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalendarGridComponentComponent
+    CalendarGridComponentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FullCalendarModule,
     CalendarModule
   ],

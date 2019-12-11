@@ -11,6 +11,7 @@ import { EmployeeHomeComponent } from './employee-home/employee-home.component';
   ],
   imports: [
     CommonModule,
+
     EmployeesRoutingModule
   ]
 })

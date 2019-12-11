@@ -9,5 +9,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 export class AppComponent {
   title = 'ClinicaFrontend';
   calendarPlugins = [dayGridPlugin];
+
 }
 
