@@ -8,7 +8,6 @@ import {FullCalendarModule} from '@fullcalendar/angular';
 import { CalendarModule } from './calendar/calendar.module';
 import { CalendarGridComponentComponent } from './calendar/calendar-grid-component/calendar-grid-component.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -22,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FullCalendarModule,
-    CalendarModule
+    CalendarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
