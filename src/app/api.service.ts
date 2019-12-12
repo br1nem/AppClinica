@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Employee } from './employee';
 import { Patient } from './patients';
 
@@ -64,6 +64,7 @@ export class ApiService {
     return this.httpClient.post(`${this.localUrl}/patients/patient`, { data: patients }, { headers: this.headers });
   }
   public getAllPatientList() {
-    return this.httpClient.get<Patient[]>(`${this.localUrl}/patients/patient`, { headers: this.headers });
+    return this.httpClient.post(`${this.localUrl}/patients/patient/search`,
+    {columns: ['PATIENT_ID', 'PATIENT_NAME', 'PATIENT_SURNAME', 'PATIENT_PHONE']} , { headers: this.headers });
   }
 }

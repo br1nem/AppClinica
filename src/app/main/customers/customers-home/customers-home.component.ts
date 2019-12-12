@@ -24,6 +24,7 @@ export class CustomersHomeComponent implements OnInit {
   constructor(public apiService: ApiService, private fb: FormBuilder) { }
 
   arrPatients: Patient[] = [];
+  displayedColumns: string[] = ['ID', 'name', 'surname', 'phone'];
 
   ngOnInit() {
     this.getPatients();
@@ -38,8 +39,8 @@ export class CustomersHomeComponent implements OnInit {
   }
   public getPatients() {
     this.apiService.getAllPatientList().subscribe((res) => {
-      this.arrPatients = res;
-      console.log(this.getPatients);
+      this.arrPatients = res['data'];
+      console.log(this.arrPatients);
     })
   }
 }
