@@ -55,7 +55,8 @@ export class ApiService {
   }
 
   public getContacts(busqueda) {
-    return this.httpClient.get<Employee[]>(`${this.localUrl}/employees/employee`);
+    return this.httpClient.post<Employee[]>(`${this.localUrl}/employees/employee/search`,
+    {columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
   }
 
 }
