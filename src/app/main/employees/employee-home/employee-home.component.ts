@@ -26,8 +26,13 @@ export class EmployeeHomeComponent implements OnInit {
       EMPLOYEE_START_DATE: '2019-12-10',
     };
 
+<<<<<<< HEAD
     this.apiService.createEmployee(employee).subscribe((res) => {
       console.log('Update a customer');
+=======
+    this.apiService. getEmployeeById(1).subscribe(res => {
+      console.log(res);
+>>>>>>> d5df6ce4c012c4ef349b5efca727c436308a9aa9
 });
   }
 }
