@@ -1,5 +1,5 @@
 
-<h1>Introduce data to create a new patient</h1>
+<h1>Patients´ List</h1>
 <form class="form-container" [formGroup]="patientForm" (ngSubmit)="createPat()">
   <!-- <mat-form-field>
     <input matInput type="number" placeholder="ID" formControlName="PATIENT_ID">
@@ -13,7 +13,11 @@
   <mat-form-field>
     <input matInput type="tel" placeholder="Phone" formControlName="PATIENT_PHONE">
   </mat-form-field>
-  <button mat-stroked-button color="warn" type="submit" >Create Patient</button>
+  <button mat-raised-button
+        matTooltip="You are about to create a patient"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+  Create
+</button>
 </form>
 
 <table mat-table *ngIf="arrPatients" [dataSource]="arrPatients" class="mat-elevation-z8">
