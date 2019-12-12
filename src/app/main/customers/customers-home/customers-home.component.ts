@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
+import { Patient } from '../../../patients';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customers-home',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersHomeComponent implements OnInit {
 
-  constructor() { }
+  patientForm = this.fb.group(
+    {
+      // PATIENT_ID: ['', [Validators.required]],
+      PATIENT_NAME: ['', [Validators.required]],
+      PATIENT_SURNAME: ['', [Validators.required]],
+      PATIENT_PHONE: ['', [Validators.required]],
+
+    },
+    { updateOn: 'blur' }
+  );
+
+  constructor(public apiService: ApiService, private fb: FormBuilder) { }
+
+  arrPatients: Patient[] = [];
 
   ngOnInit() {
+    this.getPatients();
   }
+  createPat() {
+    if (this.patientForm.valid) {
+      console.log(this.patientForm.value);
+      this.apiService.createPatient(this.patientForm.value).subscribe((res) => {
+      })
+    };
 
+  }
+  public getPatients() {
+    this.apiService.getAllPatientList().subscribe((res) => {
+      this.arrPatients = res;
+      console.log(this.getPatients);
+    })
+  }
 }

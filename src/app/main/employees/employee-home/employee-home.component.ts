@@ -20,13 +20,13 @@ export class EmployeeHomeComponent implements OnInit {
   public leerEmployees() {
     console.log('hi');
     const employee = {
-      EMPLOYEE_ID: 23,
-      EMPLOYEE_NAME: 'jENNY',
+      EMPLOYEE_ID: 66,
+      EMPLOYEE_NAME: 'Bruno',
       CATEGORY_ID: 1,
       EMPLOYEE_START_DATE: '2019-12-10',
     };
 
-    this.apiService.getEmployees().subscribe((res) => {
+    this.apiService.createEmployee(employee).subscribe((res) => {
       console.log('Update a customer');
 });
   }
