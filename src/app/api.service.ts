@@ -68,4 +68,16 @@ export class ApiService {
     return this.httpClient.post(`${this.localUrl}/patients/patient/search`,
     {columns: ['PATIENT_ID', 'PATIENT_NAME', 'PATIENT_SURNAME', 'PATIENT_PHONE']} , { headers: this.headers });
   }
+
+  public deletePatient(id: number) {
+    const options: any = {
+      headers: this.headers,
+      body: JSON.stringify({
+        filter: { PATIENT_ID: id }
+      })
+    };
+
+    return this.httpClient.delete(`${this.localUrl}/patients/patient`, options);
+  }
+
 }
