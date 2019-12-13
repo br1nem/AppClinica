@@ -29,11 +29,11 @@ export class EmployeeHomeComponent implements OnInit {
   constructor(public apiService: ApiService, private fb: FormBuilder, public dialog: MatDialog) { }
 
   arrEmployee: Employee[] = [];
-  displayedColumns: string[] = ['ID', 'name', 'category', 'date','action'];
+  displayedColumns: string[] = ['ID', 'name', 'category', 'date', 'action'];
 
   ngOnInit() {
     this.getEmployees();
-    this.getCategories();
+    //this.getCategories();
   }
 
   createEmployee() {
@@ -51,12 +51,12 @@ export class EmployeeHomeComponent implements OnInit {
     });
   }
 
-  public getCategories(){
-    this.apiService.getCategories().subscribe((res) => {
-      this.categories = res['data'];
-      console.log(this.categories);
-    });
-  }
+  // public getCategories(){
+  //   this.apiService.getCategories().subscribe((res) => {
+  //     this.categories = res['data'];
+  //     console.log(this.categories);
+  //   });
+  // }
 
 
   public deleteEmployee(id: number) {

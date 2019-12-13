@@ -4,6 +4,7 @@ import { Patient } from '../../../patients';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { CustomersDialogComponent } from '../customers-dialog/customers-dialog.component';
+import { MessageDialogComponent } from 'src/app/shared/message-dialog/message-dialog.component';
 
 @Component({
   selector: 'app-customers-home',
@@ -35,6 +36,7 @@ export class CustomersHomeComponent implements OnInit {
     if (this.patientForm.valid) {
       console.log(this.patientForm.value);
       this.apiService.createPatient(this.patientForm.value).subscribe((res) => {
+        this.showCreateMessage();
       });
     }
 
@@ -48,13 +50,38 @@ export class CustomersHomeComponent implements OnInit {
 
   public deletePatient(id: number) {
     this.apiService.deletePatient(id).subscribe(res => {
+      this.showDeleteMessage();
     });
   }
 
   public openDialog(rowData): void {
     const dialogRef = this.dialog.open(CustomersDialogComponent, {
-      width: '250px',
+      width: '300px',
       data: rowData
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.showUpdateMessage();
+    });
+  }
+
+  public showCreateMessage() {
+    const dialogRef = this.dialog.open(MessageDialogComponent, {
+      width: '250px',
+      data: { title: 'MESSAGE', message: 'Patient created successfully!!!'}
+    });
+  }
+
+  public showDeleteMessage() {
+    const dialogRef = this.dialog.open(MessageDialogComponent, {
+      width: '250px',
+      data: { title: 'MESSAGE', message: 'Patient deleted successfully!!!'}
+    });
+  }
+
+  public showUpdateMessage() {
+    const dialogRef = this.dialog.open(MessageDialogComponent, {
+      width: '250px',
+      data: { title: 'MESSAGE', message: 'Patient updated successfully!!!'}
     });
   }
 }
