@@ -8,6 +8,7 @@ import {FullCalendarModule} from '@fullcalendar/angular';
 import { CalendarModule } from './calendar/calendar.module';
 import { CalendarGridComponentComponent } from './calendar/calendar-grid-component/calendar-grid-component.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     CalendarModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
