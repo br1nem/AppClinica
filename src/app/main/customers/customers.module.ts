@@ -8,6 +8,7 @@ import { MatFormFieldModule, MatTableModule, MatTooltipModule, MatInputModule, M
 import { CustomersDialogComponent } from './customers-dialog/customers-dialog.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MessageDialogComponent } from 'src/app/shared/message-dialog/message-dialog.component';
+import { MatToolbarModule} from '@angular/material';
 
 
 
@@ -26,7 +27,8 @@ import { MessageDialogComponent } from 'src/app/shared/message-dialog/message-di
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
+    MatToolbarModule
   ],
   entryComponents: [
     CustomersDialogComponent,

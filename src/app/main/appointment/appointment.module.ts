@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AppointmentRoutingModule } from './appointment-routing.module';
 import { AppointmentHomeComponent } from './appointment-home/appointment-home.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
+import { MatToolbarModule, MatButtonModule, MatInputModule, MatDialogModule } from '@angular/material';
 
 
 
@@ -14,7 +15,11 @@ import {FullCalendarModule} from '@fullcalendar/angular';
   imports: [
     CommonModule,
     AppointmentRoutingModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ]
 })
 export class AppointmentModule { }
