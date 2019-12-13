@@ -25,7 +25,7 @@ export function loadInvoiceModule() {
 const routes: Routes = [
   {path: '', component: MainComponent },
   {path: 'employees', loadChildren: loadEmployeesModule},
-  {path: 'customers', loadChildren: loadCustomersModule},
+  {path: 'patients', loadChildren: loadCustomersModule},
   {path: 'appointment', loadChildren: loadAppointmentModule},
   {path: 'invoice', loadChildren: loadInvoiceModule }
 ];

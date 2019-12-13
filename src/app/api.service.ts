@@ -60,7 +60,7 @@ export class ApiService {
     return this.httpClient.post<Employee[]>(`${this.localUrl}/employees/employee/search`,
     {columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
   }
-  //Methods for Patients
+  // Methods for Patients
   public createPatient(patients: Patient) {
     return this.httpClient.post(`${this.localUrl}/patients/patient`, { data: patients }, { headers: this.headers });
   }

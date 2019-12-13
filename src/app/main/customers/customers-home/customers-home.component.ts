@@ -33,14 +33,14 @@ export class CustomersHomeComponent implements OnInit {
     if (this.patientForm.valid) {
       console.log(this.patientForm.value);
       this.apiService.createPatient(this.patientForm.value).subscribe((res) => {
-      })
-    };
+      });
+    }
 
   }
   public getPatients() {
     this.apiService.getAllPatientList().subscribe((res) => {
-      this.arrPatients = res['data'];
+      this.arrPatients = res["data"];
       console.log(this.arrPatients);
-    })
+    });
   }
 }

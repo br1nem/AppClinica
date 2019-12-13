@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { EmployeesRoutingModule } from './employees-routing.module';
 import { EmployeeHomeComponent } from './employee-home/employee-home.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule, MatTableModule } from '@angular/material';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { EmployeeHomeComponent } from './employee-home/employee-home.component';
   ],
   imports: [
     CommonModule,
-
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatTableModule,
     EmployeesRoutingModule
   ]
 })
