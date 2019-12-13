@@ -16,7 +16,7 @@ export class CustomersDialogComponent implements OnInit {
 
   patientForm = this.fb.group(
     {
-      PATIENT_ID:[ null, [Validators.required]],
+      PATIENT_ID: [ null, [Validators.required]],
       PATIENT_NAME: ['', [Validators.required]],
       PATIENT_SURNAME: ['', [Validators.required]],
       PATIENT_PHONE: ['', [Validators.required]],
@@ -38,7 +38,7 @@ export class CustomersDialogComponent implements OnInit {
     if (this.patientForm.valid) {
       this.apiService.updatePatient(this.patientForm.value).subscribe();
     }
-    this.dialogRef.close();
+    this.dialogRef.close('updated');
   }
 
 

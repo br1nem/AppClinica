@@ -60,7 +60,9 @@ export class CustomersHomeComponent implements OnInit {
       data: rowData
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.showUpdateMessage();
+      if (result === 'updated') {
+        this.showUpdateMessage();
+      }
     });
   }
 
