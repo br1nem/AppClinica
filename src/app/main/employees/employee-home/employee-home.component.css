@@ -1,3 +1,21 @@
 table {
   width: 100%;
 }
+
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #3f51b5;
+  color: white;
+  font-size: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+}
+
+
+mat-form-field {
+  padding: 9px;
+}
+
+button {
+  margin: 5px;
+}
