@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Patient } from '../../../patients';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { CustomersDialogComponent } from '../customers-dialog/customers-dialog.component';
 
 @Component({
   selector: 'app-customers-home',
@@ -21,10 +23,10 @@ export class CustomersHomeComponent implements OnInit {
     { updateOn: 'blur' }
   );
 
-  constructor(public apiService: ApiService, private fb: FormBuilder) { }
+  constructor(public apiService: ApiService, private fb: FormBuilder, public dialog: MatDialog) { }
 
   arrPatients: Patient[] = [];
-  displayedColumns: string[] = ['ID', 'name', 'surname', 'phone','action'];
+  displayedColumns: string[] = ['ID', 'name', 'surname', 'phone', 'action'];
 
   ngOnInit() {
     this.getPatients();
@@ -46,6 +48,13 @@ export class CustomersHomeComponent implements OnInit {
 
   public deletePatient(id: number) {
     this.apiService.deletePatient(id).subscribe(res => {
+    });
+  }
+
+  public openDialog(rowData): void {
+    const dialogRef = this.dialog.open(CustomersDialogComponent, {
+      width: '250px',
+      data: rowData
     });
   }
 }

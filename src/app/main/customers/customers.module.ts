@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { CustomersRoutingModule } from './customers-routing.module';
 import { CustomersHomeComponent } from './customers-home/customers-home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatTableModule, MatTooltipModule, MatInputModule } from '@angular/material';
-import {MatButtonModule} from '@angular/material/button';
+import { MatFormFieldModule, MatTableModule, MatTooltipModule, MatInputModule, MatDialogModule, MatButtonModule } from '@angular/material';
+import { CustomersDialogComponent } from './customers-dialog/customers-dialog.component';
+
 
 
 @NgModule({
   declarations: [
     CustomersHomeComponent,
+    CustomersDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -20,8 +22,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatTableModule,
     MatTooltipModule,
     MatButtonModule,
-    MatInputModule
-
+    MatInputModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    CustomersDialogComponent
   ]
 })
 export class CustomersModule { }
