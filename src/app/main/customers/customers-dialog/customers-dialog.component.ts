@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Patient } from 'src/app/patients';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class CustomersDialogComponent implements OnInit {
 
   patientForm = this.fb.group(
     {
-      PATIENT_ID:[null,[Validators.required]],
+      PATIENT_ID:[ null, [Validators.required]],
       PATIENT_NAME: ['', [Validators.required]],
       PATIENT_SURNAME: ['', [Validators.required]],
       PATIENT_PHONE: ['', [Validators.required]],
@@ -27,7 +26,6 @@ export class CustomersDialogComponent implements OnInit {
   );
 
   ngOnInit() {
-    console.log(this.data);
     this.patientForm.setValue({
       PATIENT_ID: this.data.PATIENT_ID,
       PATIENT_NAME: this.data.PATIENT_NAME || '',
@@ -38,6 +36,7 @@ export class CustomersDialogComponent implements OnInit {
 
   public updatePat() {
     this.apiService.updatePatient(this.patientForm.value).subscribe();
+    this.dialogRef.close();
   }
 
 

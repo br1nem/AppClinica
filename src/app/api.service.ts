@@ -80,4 +80,9 @@ export class ApiService {
     return this.httpClient.delete(`${this.localUrl}/patients/patient`, options);
   }
 
+  public updatePatient(patient: Patient) {
+    return this.httpClient.put(`${this.localUrl}/patients/patient`, { filter: { PATIENT_ID: patient.PATIENT_ID }, data: patient },
+      { headers: this.headers });
+  }
+
 }
