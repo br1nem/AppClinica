@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsServicesRoutingModule } from './products-services-routing.module';
 import { ProductsServicesMainComponent } from './products-services-main/products-services-main.component';
-import { MatToolbarModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatTableModule } from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 
 
@@ -14,7 +14,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ProductsServicesRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ]
 })
 export class ProductsServicesModule { }
