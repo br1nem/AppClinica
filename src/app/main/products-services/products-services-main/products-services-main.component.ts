@@ -27,7 +27,9 @@ export class ProductsServicesMainComponent implements OnInit {
 
   arrProduct: Product[] = [];
   displayedColumns: string[] = ['ID', 'name', 'supplier', 'category', 'stock', 'price'];
+
   ngOnInit() {
+    this.getProducts();
   }
 
 createProduct() {
@@ -35,6 +37,11 @@ createProduct() {
     this.apiService.createProduct(this.productForm.value).subscribe((res) => {
     });
   }
-
+}
+public getProducts() {
+  this.apiService.getEmployees().subscribe((res) => {
+    this.arrProduct = res['data'];
+    console.log(this.arrProduct);
+  });
 }
   }
