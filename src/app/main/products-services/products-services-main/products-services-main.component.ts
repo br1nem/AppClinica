@@ -23,7 +23,7 @@ export class ProductsServicesMainComponent implements OnInit {
     { updateOn: 'blur' }
   );
 
-  constructor(public apiService: ApiService, private fb: FormBuilder, ) { }
+  constructor(public apiService: ApiService, private fb: FormBuilder) { }
 
   arrProduct: Product[] = [];
   displayedColumns: string[] = ['ID', 'name', 'supplier', 'category', 'stock', 'price'];
