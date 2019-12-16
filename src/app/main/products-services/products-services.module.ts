@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsServicesRoutingModule } from './products-services-routing.module';
 import { ProductsServicesMainComponent } from './products-services-main/products-services-main.component';
 import { MatToolbarModule, MatButtonModule } from '@angular/material';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { MatToolbarModule, MatButtonModule } from '@angular/material';
     CommonModule,
     ProductsServicesRoutingModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ]
 })
 export class ProductsServicesModule { }

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InvoiceRoutingModule } from './invoice-routing.module';
 import { InvoiceHomeComponent } from './invoice-home/invoice-home.component';
 import { MatToolbarModule, MatDialogModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MatToolbarModule, MatDialogModule, MatButtonModule, MatInputModule } fr
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    SharedModule
   ]
 })
 export class InvoiceModule { }
