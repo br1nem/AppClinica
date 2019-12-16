@@ -5,6 +5,7 @@ import { AppointmentRoutingModule } from './appointment-routing.module';
 import { AppointmentHomeComponent } from './appointment-home/appointment-home.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
 import { MatToolbarModule, MatButtonModule, MatInputModule, MatDialogModule } from '@angular/material';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -19,7 +20,8 @@ import { MatToolbarModule, MatButtonModule, MatInputModule, MatDialogModule } fr
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    SharedModule
   ]
 })
 export class AppointmentModule { }
