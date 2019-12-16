@@ -88,11 +88,12 @@ export class ApiService {
       { headers: this.headers });
   }
   // Methods for Product
-  public createProduct(patients: Product) {
+  public createProduct(products: Product) {
     return this.httpClient.post(`${this.localUrl}/products/product`, { data: Product }, { headers: this.headers });
   }
-  public getProducts(url?: string) {
+  public getProducts() {
     return this.httpClient.post(`${this.localUrl}/products/product/search`,
       { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK', 'PRODUCT_PRICE'] }, { headers: this.headers });
   }
+
 }
