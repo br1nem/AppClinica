@@ -33,7 +33,7 @@ export class EmployeeHomeComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
-    //this.getCategories();
+    this.getCategories();
   }
 
   createEmployee() {
@@ -51,12 +51,12 @@ export class EmployeeHomeComponent implements OnInit {
     });
   }
 
-  // public getCategories(){
-  //   this.apiService.getCategories().subscribe((res) => {
-  //     this.categories = res['data'];
-  //     console.log(this.categories);
-  //   });
-  // }
+  public getCategories() {
+    this.apiService.getCategories().subscribe((res) => {
+    this.categories = res['data'];
+    console.log(this.categories);
+  });
+  }
 
 
   public deleteEmployee(id: number) {
