@@ -92,7 +92,7 @@ export class ApiService {
     return this.httpClient.post(`${this.localUrl}/products/product`, { data: Product }, { headers: this.headers });
   }
   public getProducts(url?: string) {
-    return this.httpClient.post(`${this.localUrl}/employees/employee/search`,
-      { columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE'] }, { headers: this.headers });
+    return this.httpClient.post(`${this.localUrl}/products/product/search`,
+      { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK', 'PRODUCT_PRICE'] }, { headers: this.headers });
   }
 }
