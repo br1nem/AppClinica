@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EmployeesRoutingModule } from './employees-routing.module';
 import { EmployeeHomeComponent } from './employee-home/employee-home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatTableModule, MatTooltipModule, MatButtonModule, MatInputModule, MatDialogModule, MatSelect, MatSelectModule, MatOptionModule } from '@angular/material';
+import { MatFormFieldModule, MatTableModule, MatTooltipModule, MatButtonModule, MatInputModule, MatDialogModule, MatSelect, MatSelectModule, MatOptionModule, MatToolbarModule } from '@angular/material';
 import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.component';
 
 
@@ -24,7 +24,8 @@ import { EmployeeDialogComponent } from './employee-dialog/employee-dialog.compo
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatToolbarModule
   ],
   entryComponents: [
     EmployeeDialogComponent

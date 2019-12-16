@@ -13,7 +13,7 @@
     <mat-form-field>
       <input   matInput type="tel" placeholder="Phone" formControlName="PATIENT_PHONE">
     </mat-form-field>
-    <button mat-raised-button color="primary"
+    <button mat-raised-button color="primary" [disabled]="patientForm.invalid"
           matTooltip="You are about to update a patient's profile"
           aria-label="Button that displays a tooltip when focused or hovered over">
     Update

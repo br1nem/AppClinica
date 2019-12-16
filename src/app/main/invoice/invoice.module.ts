@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InvoiceRoutingModule } from './invoice-routing.module';
 import { InvoiceHomeComponent } from './invoice-home/invoice-home.component';
+import { MatToolbarModule, MatDialogModule, MatButtonModule, MatInputModule } from '@angular/material';
 
 
 @NgModule({
@@ -11,7 +12,11 @@ import { InvoiceHomeComponent } from './invoice-home/invoice-home.component';
   ],
   imports: [
     CommonModule,
-    InvoiceRoutingModule
+    InvoiceRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ]
 })
 export class InvoiceModule { }

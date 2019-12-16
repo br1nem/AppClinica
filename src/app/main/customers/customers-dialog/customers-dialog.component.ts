@@ -35,8 +35,10 @@ export class CustomersDialogComponent implements OnInit {
   }
 
   public updatePat() {
-    this.apiService.updatePatient(this.patientForm.value).subscribe();
-    this.dialogRef.close();
+    if (this.patientForm.valid) {
+      this.apiService.updatePatient(this.patientForm.value).subscribe();
+    }
+    this.dialogRef.close('updated');
   }
 
 

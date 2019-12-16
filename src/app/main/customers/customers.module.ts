@@ -6,6 +6,9 @@ import { CustomersHomeComponent } from './customers-home/customers-home.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatTableModule, MatTooltipModule, MatInputModule, MatDialogModule, MatButtonModule } from '@angular/material';
 import { CustomersDialogComponent } from './customers-dialog/customers-dialog.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { MessageDialogComponent } from 'src/app/shared/message-dialog/message-dialog.component';
+import { MatToolbarModule} from '@angular/material';
 
 
 
@@ -23,10 +26,13 @@ import { CustomersDialogComponent } from './customers-dialog/customers-dialog.co
     MatTooltipModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    SharedModule,
+    MatToolbarModule
   ],
   entryComponents: [
-    CustomersDialogComponent
+    CustomersDialogComponent,
+    MessageDialogComponent
   ]
 })
 export class CustomersModule { }

@@ -1,1 +1,15 @@
-<p>invoice-home works!</p>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row #sidenav>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/main/employees'"> Employees</a>
+      <a mat-button [routerLink]="'/main/patients'"> Patients </a>
+      <a mat-button [routerLink]="'/main/appointment'"> Appointments </a>
+      <a mat-button [routerLink]="'/main/invoice'"> Invoice </a>
+      <a mat-button [routerLink]="'/main/products'"> Products</a>
+
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<h1 class="header">INVOICING</h1>

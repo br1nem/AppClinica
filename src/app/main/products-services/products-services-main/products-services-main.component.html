@@ -7,20 +7,7 @@
       <a mat-button [routerLink]="'/main/appointment'"> Appointments </a>
       <a mat-button [routerLink]="'/main/invoice'"> Invoice </a>
       <a mat-button [routerLink]="'/main/products'"> Products</a>
-
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-
-<h1 class="header"> APPOINTMENTS</h1>
-<full-calendar
-defaultView="dayGridMonth"
-[plugins]="calendarPlugins"
-[weekends]="false"
-[events]="[
-  { title: 'Fisoterapia', date: '2019-12-11' },
-  { title: 'Dentista', date: '2019-12-12' }
-]"
-></full-calendar>
-
-
+<h1 class="header">PRODUCTS & SERVICES</h1>
