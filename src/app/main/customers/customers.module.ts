@@ -28,7 +28,8 @@ import { MatToolbarModule} from '@angular/material';
     MatInputModule,
     MatDialogModule,
     SharedModule,
-    MatToolbarModule
+    MatToolbarModule,
+    SharedModule
   ],
   entryComponents: [
     CustomersDialogComponent,

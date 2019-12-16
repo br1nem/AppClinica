@@ -27,6 +27,10 @@ export class ApiService {
 
   /** Methods for use backend in frontend */
   public createEmployee(employee: Employee) {
+    console.log(employee.CATEGORY_ID);
+    const aux = employee.CATEGORY_ID.CATEGORY_ID;
+    employee.CATEGORY_ID = aux;
+    console.log(employee.CATEGORY_ID);
     return this.httpClient.post(`${this.localUrl}/employees/employee`, { data: employee }, { headers: this.headers });
   }
 
@@ -97,4 +101,21 @@ export class ApiService {
        'PRODUCT_PRICE'] }, { headers: this.headers });
   }
 
+  public getCategories(url?: string) {
+    return this.httpClient.post(`${this.localUrl}/employees/category/search`,
+    {columns: ['CATEGORY_ID', 'CATEGORY_NAME']}, {headers: this.headers});
+  }
+
+
+  public getAppointments(url?: string) {
+    return this.httpClient.post(`${this.localUrl}/employees/appointment/search`,
+    {columns: ['APPOINTMENT_ID', 'PATIENT_ID', 'EMPLOYEE_ID', 'APPOINTMENT_DATE']}, {headers: this.headers});
+  }
+
+  public getCompleteAppoinments() {
+    return this.httpClient.post(`${this.localUrl}/employees/completeAppointment/search`, {
+      columns: ['APPOINTMENT_ID', 'APPOINTMENT_DATE', 'CATEGORY_NAME', 'CATEGORY_ROOM', 'PATIENT_NAME']
+    }
+    , {headers: this.headers});
+  }
 }
