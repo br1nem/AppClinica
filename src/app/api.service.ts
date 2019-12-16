@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Employee } from './employee';
 import { Patient } from './patients';
+import { Product } from './products';
 
 @Injectable({
   providedIn: 'root'
@@ -47,18 +48,20 @@ export class ApiService {
 
   public getEmployeeById(id: number) {
 
-    return this.httpClient.post(`${this.localUrl}/employees/employee/search`, {filter: {EMPLOYEE_ID: id},
-    columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
+    return this.httpClient.post(`${this.localUrl}/employees/employee/search`, {
+      filter: { EMPLOYEE_ID: id },
+      columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']
+    }, { headers: this.headers });
   }
 
   public getEmployees(url?: string) {
     return this.httpClient.post(`${this.localUrl}/employees/employee/search`,
-    {columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
+      { columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE'] }, { headers: this.headers });
   }
 
   public getContacts(busqueda) {
     return this.httpClient.post<Employee[]>(`${this.localUrl}/employees/employee/search`,
-    {columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE']}, {headers: this.headers});
+      { columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE'] }, { headers: this.headers });
   }
   // Methods for Patients
   public createPatient(patients: Patient) {
@@ -66,7 +69,7 @@ export class ApiService {
   }
   public getAllPatientList() {
     return this.httpClient.post(`${this.localUrl}/patients/patient/search`,
-    {columns: ['PATIENT_ID', 'PATIENT_NAME', 'PATIENT_SURNAME', 'PATIENT_PHONE']} , { headers: this.headers });
+      { columns: ['PATIENT_ID', 'PATIENT_NAME', 'PATIENT_SURNAME', 'PATIENT_PHONE'] }, { headers: this.headers });
   }
 
   public deletePatient(id: number) {
@@ -84,5 +87,12 @@ export class ApiService {
     return this.httpClient.put(`${this.localUrl}/patients/patient`, { filter: { PATIENT_ID: patient.PATIENT_ID }, data: patient },
       { headers: this.headers });
   }
-
+  // Methods for Product
+  public createProduct(patients: Product) {
+    return this.httpClient.post(`${this.localUrl}/products/product`, { data: Product }, { headers: this.headers });
+  }
+  public getProducts(url?: string) {
+    return this.httpClient.post(`${this.localUrl}/employees/employee/search`,
+      { columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE'] }, { headers: this.headers });
+  }
 }
