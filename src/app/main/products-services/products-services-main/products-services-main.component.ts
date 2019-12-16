@@ -39,7 +39,7 @@ createProduct() {
   }
 }
 public getProducts() {
-  this.apiService.getEmployees().subscribe((res) => {
+  this.apiService.getProducts().subscribe((res) => {
     this.arrProduct = res['data'];
     console.log(this.arrProduct);
   });
