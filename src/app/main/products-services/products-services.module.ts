@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsServicesRoutingModule } from './products-services-routing.module';
 import { ProductsServicesMainComponent } from './products-services-main/products-services-main.component';
 import { MatToolbarModule, MatButtonModule } from '@angular/material';
-import { FormBuilder } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { FormBuilder } from '@angular/forms';
     ProductsServicesRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    FormBuilder
+    ReactiveFormsModule
   ]
 })
 export class ProductsServicesModule { }
