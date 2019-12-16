@@ -85,4 +85,8 @@ export class ApiService {
       { headers: this.headers });
   }
 
+  public getCategories(url?: string) {
+    return this.httpClient.post(`${this.localUrl}/employees/category/search`,
+    {columns: ['CATEGORY_ID', 'CATEGORY_NAME']}, {headers: this.headers});
+  }
 }

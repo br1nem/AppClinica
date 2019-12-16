@@ -16,7 +16,7 @@ export class CustomersDialogComponent implements OnInit {
 
   patientForm = this.fb.group(
     {
-      PATIENT_ID:[ null, [Validators.required]],
+      PATIENT_ID: [ null, [Validators.required]],
       PATIENT_NAME: ['', [Validators.required]],
       PATIENT_SURNAME: ['', [Validators.required]],
       PATIENT_PHONE: ['', [Validators.required]],
