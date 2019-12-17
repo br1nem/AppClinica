@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { ApiService } from 'src/app/api.service';
+import { Calendar } from '@fullcalendar/core';
+import interactionPlugin from '@fullcalendar/interaction';
+import { MatDialog } from '@angular/material';
+import { AppointmentDialogComponent } from '../appointment-dialog/appointment-dialog.component';
 
 @Component({
   selector: 'app-appointment-home',
@@ -9,10 +13,10 @@ import { ApiService } from 'src/app/api.service';
 })
 export class AppointmentHomeComponent implements OnInit {
 
-  calendarPlugins = [dayGridPlugin];
+  calendarPlugins = [dayGridPlugin, interactionPlugin];
   calendarEvents = [{}];
 
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getAppointments();
@@ -28,10 +32,23 @@ export class AppointmentHomeComponent implements OnInit {
           ': ' + appointments[i].PATIENT_NAME), date: appointments[i].APPOINTMENT_DATE}
       );
     }
-    console.log(appointments);
   });
   }
 
+  handleDateClick(arg) {
+    console.log(arg);
+    this.openDialog(arg);
 
+  }
 
+  public openDialog(arg): void {
+    const dialogRef = this.dialog.open(AppointmentDialogComponent, {
+      width: '300px',
+      data: arg
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.calendarEvents = [{}];
+      this.getAppointments();
+    });
+  }
 }

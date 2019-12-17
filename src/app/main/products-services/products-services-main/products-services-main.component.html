@@ -1,71 +1,19 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row #sidenav>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/main/employees'"> Employees</a>
-      <a mat-button [routerLink]="'/main/patients'"> Patients </a>
-      <a mat-button [routerLink]="'/main/appointment'"> Appointments </a>
-      <a mat-button [routerLink]="'/main/invoice'"> Invoice </a>
-      <a mat-button [routerLink]="'/main/products'"> Products</a>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<h1 class="header">PRODUCTS</h1>
-
-
-<table mat-table *ngIf="arrProduct" [dataSource]="arrProduct" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Id Column -->
-  <ng-container matColumnDef="ID">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.PRODUCT_ID}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.PRODUCT_NAME}} </td>
-  </ng-container>
-
-  <!-- Supplier Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Supplier </th>
-    <td mat-cell *matCellDef="let element"> {{element.SUPPLIER_ID}} </td>
-  </ng-container>
-
-  <!-- Catgory Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Category </th>
-    <td mat-cell *matCellDef="let element"> {{element.CATEGORY_PRODUCT_ID}} </td>
-  </ng-container>
-
-  <!-- Stock Column -->
-  <ng-container matColumnDef="number">
-    <th mat-header-cell *matHeaderCellDef> Stock </th>
-    <td mat-cell *matCellDef="let element"> {{element.PRODUCT_STOCK}} </td>
-  </ng-container>
-
-  <!-- Price Column -->
-  <ng-container matColumnDef="number">
-    <th mat-header-cell *matHeaderCellDef> Price </th>
-    <td mat-cell *matCellDef="let element"> {{element.PRODUCT_PRICE}} </td>
-  </ng-container>
-
-  <!-- Actions Column
-  <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let element" class="action-link">
-      <button mat-raised-button color="primary" (click)="deleteEmployee(element.EMPLOYEE_ID)">Delete</button>
-      <button mat-raised-button color="primary" (click)="openDialog(element)">Update</button>
-    </td>
-  </ng-container> -->
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
 <app-navigation-bar></app-navigation-bar>
 
+<mat-tab-group>
+  <mat-tab label="Products">
+    <div class="container" *ngIf="arrProduct">
+      <div class="cards" *ngFor="let product of arrProduct">
+        <app-card-product [product]="product"></app-card-product>
+      </div>
+    </div>
+  </mat-tab>
 
+  <mat-tab label="Services">
+    <div class="container" *ngIf="arrService">
+      <div class="cards" *ngFor="let service of arrService">
+        <app-card-servict [service]="service"></app-card-servict>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

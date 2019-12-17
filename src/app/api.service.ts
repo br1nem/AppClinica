@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Employee } from './employee';
 import { Patient } from './patients';
+import { Appointment } from './appointment';
 import { Product } from './products';
 
 @Injectable({
@@ -18,19 +19,17 @@ export class ApiService {
   public nextPage = '';
   public lastPage = '';
 
+  id: string = localStorage.getItem('id');
   // Las letras que están a continuación de bearer se obtuvieron mediante la llamada al login desde el postman
   // deberia obtenerse mediante la llamada desde el servicio login y guardandolo como guardamos el role
   headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGlvbi10aW1lIjoxNT' +
-      'c2MDgwMzQyNDE2LCJ1c2VybmFtZSI6ImRlbW8ifQ.R4t-Sa1FMMwjhqoTq0WvwCreHCSwpHPZlTP0ismkHW8', 'Content-type': 'application/json'
+    Authorization: `Bearer ${this.id}`, 'Content-type': 'application/json'
   });
 
   /** Methods for use backend in frontend */
   public createEmployee(employee: Employee) {
-    console.log(employee.CATEGORY_ID);
     const aux = employee.CATEGORY_ID.CATEGORY_ID;
     employee.CATEGORY_ID = aux;
-    console.log(employee.CATEGORY_ID);
     return this.httpClient.post(`${this.localUrl}/employees/employee`, { data: employee }, { headers: this.headers });
   }
 
@@ -59,6 +58,7 @@ export class ApiService {
   }
 
   public getEmployees(url?: string) {
+    console.log(this.headers);
     return this.httpClient.post(`${this.localUrl}/employees/employee/search`,
       { columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE'] }, { headers: this.headers });
   }
@@ -100,7 +100,7 @@ export class ApiService {
       { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
        'PRODUCT_PRICE'] }, { headers: this.headers });
   }
-
+// Methods for categories
   public getCategories(url?: string) {
     return this.httpClient.post(`${this.localUrl}/employees/category/search`,
     {columns: ['CATEGORY_ID', 'CATEGORY_NAME']}, {headers: this.headers});
@@ -118,4 +118,14 @@ export class ApiService {
     }
     , {headers: this.headers});
   }
+
+  public createAppointment(appointment: Appointment) {
+    return this.httpClient.post(`${this.localUrl}/employees/appointment`, { data: appointment }, { headers: this.headers });
+  }
+  // Methods for services
+  public getServices(url?: string) {
+    return this.httpClient.post(`${this.localUrl}/assets/service/search`,
+      { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'] }, { headers: this.headers });
+  }
+
 }

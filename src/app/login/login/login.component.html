@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Log in</h1>
+
+  <form class="form-container" [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Username" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" matTooltip="You are about to create a new patient"
+      aria-label="Button that displays a tooltip when focused or hovered over">
+      Login
+    </button>
+    <a mat-button routerLink="register" color="primary">Still not registered?</a>
+  </form>
+</div>

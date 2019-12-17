@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Product } from 'src/app/products';
+import { Service } from 'src/app/service';
 
 
 @Component({
@@ -26,22 +27,31 @@ export class ProductsServicesMainComponent implements OnInit {
   constructor(public apiService: ApiService, private ff: FormBuilder) { }
 
   arrProduct: Product[] = [];
-  displayedColumns: string[] = ['ID', 'name', 'supplier', 'category', 'stock', 'price'];
+  arrService: Service[] = [];
+
 
   ngOnInit() {
     this.getProducts();
+    this.getServices();
   }
 
-createProduct() {
-  if (this.productForm.valid) {
-    this.apiService.createProduct(this.productForm.value).subscribe((res) => {
+  createProduct() {
+    if (this.productForm.valid) {
+      this.apiService.createProduct(this.productForm.value).subscribe((res) => {
+      });
+    }
+  }
+  public getProducts() {
+    this.apiService.getProducts().subscribe((res) => {
+      this.arrProduct = res['data'];
+      console.log(this.arrProduct);
     });
   }
-}
-public getProducts() {
-  this.apiService.getProducts().subscribe((res) => {
-    this.arrProduct = res['data'];
-    console.log(this.arrProduct);
-  });
-}
+  public getServices() {
+    this.apiService.getServices().subscribe((res) => {
+      this.arrService = res['data'];
+      console.log(this.arrService);
+    });
+
   }
+}

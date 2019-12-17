@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 
 
-import { LoginComponent } from './login.component';
+import { LoginComponent } from './login/login.component';
 import { LoginRoutingModule } from './login-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule, MatButtonModule, MatFormFieldModule } from '@angular/material';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   imports: [
-    LoginRoutingModule
+    LoginRoutingModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
   ]
 })
 export class LoginModule {

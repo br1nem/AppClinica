@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Register</h1>
+
+  <form class="form-container" [formGroup]="registerForm" (ngSubmit)="register()">
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Username" formControlName="USER_">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="PASSWORD">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Name" formControlName="NAME">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Surname" formControlName="SURNAME">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="email" placeholder="Email" formControlName="EMAIL">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="DNI" formControlName="DNI">
+    </mat-form-field>
+    <button mat-raised-button color="primary" matTooltip="You are about to register a new user"
+      aria-label="Button that displays a tooltip when focused or hovered over">
+      Register
+    </button>
+    <a mat-button routerLink="../" color="primary">Want to login?</a>
+  </form>
+</div>
