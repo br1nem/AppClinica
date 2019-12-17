@@ -19,11 +19,11 @@ export class ApiService {
   public nextPage = '';
   public lastPage = '';
 
+  id: string = localStorage.getItem('id');
   // Las letras que están a continuación de bearer se obtuvieron mediante la llamada al login desde el postman
   // deberia obtenerse mediante la llamada desde el servicio login y guardandolo como guardamos el role
   headers: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGlvbi10aW1lIjoxNT' +
-      'c2MDgwMzQyNDE2LCJ1c2VybmFtZSI6ImRlbW8ifQ.R4t-Sa1FMMwjhqoTq0WvwCreHCSwpHPZlTP0ismkHW8', 'Content-type': 'application/json'
+    Authorization: `Bearer ${this.id}`, 'Content-type': 'application/json'
   });
 
   /** Methods for use backend in frontend */
@@ -58,6 +58,7 @@ export class ApiService {
   }
 
   public getEmployees(url?: string) {
+    console.log(this.headers);
     return this.httpClient.post(`${this.localUrl}/employees/employee/search`,
       { columns: ['EMPLOYEE_ID', 'EMPLOYEE_NAME', 'CATEGORY_ID', 'EMPLOYEE_START_DATE'] }, { headers: this.headers });
   }

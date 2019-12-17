@@ -7,7 +7,10 @@
       <a mat-button [routerLink]="'/main/appointment'"> Appointments </a>
       <a mat-button [routerLink]="'/main/invoice'"> Invoice </a>
       <a mat-button [routerLink]="'/main/products'"> Products</a>
-
+    </div>
+    <span class="fill-space"></span>
+    <div>
+      <a mat-button (click)="logout()">Logout</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

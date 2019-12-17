@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.loginService.login(this.loginForm.value).subscribe(
         res => {
-          console.log('usuario correcto');
+          localStorage.setItem('id', res['headers'].get('X-Auth-Token'));
           this.router.navigate(['main/patients']);
         }
       );
