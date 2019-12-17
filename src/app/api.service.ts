@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Employee } from './employee';
 import { Patient } from './patients';
+import { Appointment } from './appointment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,8 @@ export class ApiService {
 
   /** Methods for use backend in frontend */
   public createEmployee(employee: Employee) {
-    console.log(employee.CATEGORY_ID);
     const aux = employee.CATEGORY_ID.CATEGORY_ID;
     employee.CATEGORY_ID = aux;
-    console.log(employee.CATEGORY_ID);
     return this.httpClient.post(`${this.localUrl}/employees/employee`, { data: employee }, { headers: this.headers });
   }
 
@@ -105,5 +104,9 @@ export class ApiService {
       columns: ['APPOINTMENT_ID', 'APPOINTMENT_DATE', 'CATEGORY_NAME', 'CATEGORY_ROOM', 'PATIENT_NAME']
     }
     , {headers: this.headers});
+  }
+
+  public createAppointment(appointment: Appointment) {
+    return this.httpClient.post(`${this.localUrl}/employees/appointment`, { data: appointment }, { headers: this.headers });
   }
 }

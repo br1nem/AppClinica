@@ -1,11 +1,7 @@
 <app-navigation-bar></app-navigation-bar>
 
 <h1 class="header"> APPOINTMENTS</h1>
-<full-calendar
-defaultView="dayGridMonth"
-[plugins]="calendarPlugins"
-[weekends]="false"
-[events]="calendarEvents"
-></full-calendar>
+<full-calendar defaultView="dayGridMonth" [selectable]="true" [plugins]="calendarPlugins" [weekends]="true"
+    [events]="calendarEvents" (dateClick)="handleDateClick($event)"></full-calendar>
 
 
