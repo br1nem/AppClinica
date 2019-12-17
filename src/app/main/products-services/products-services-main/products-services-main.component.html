@@ -1,3 +1,19 @@
 <app-navigation-bar></app-navigation-bar>
 
-<h1 class="header">PRODUCTS & SERVICES</h1>
+<mat-tab-group>
+  <mat-tab label="Products">
+    <div class="container" *ngIf="arrProduct">
+      <div class="cards" *ngFor="let product of arrProduct">
+        <app-card-product [product]="product"></app-card-product>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Services">
+    <div class="container" *ngIf="arrService">
+      <div class="cards" *ngFor="let service of arrService">
+        <app-card-servict [service]="service"></app-card-servict>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

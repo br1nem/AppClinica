@@ -99,7 +99,7 @@ export class ApiService {
       { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
        'PRODUCT_PRICE'] }, { headers: this.headers });
   }
-
+// Methods for categories
   public getCategories(url?: string) {
     return this.httpClient.post(`${this.localUrl}/employees/category/search`,
     {columns: ['CATEGORY_ID', 'CATEGORY_NAME']}, {headers: this.headers});
@@ -121,4 +121,10 @@ export class ApiService {
   public createAppointment(appointment: Appointment) {
     return this.httpClient.post(`${this.localUrl}/employees/appointment`, { data: appointment }, { headers: this.headers });
   }
+  // Methods for services
+  public getServices(url?: string) {
+    return this.httpClient.post(`${this.localUrl}/assets/service/search`,
+      { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'] }, { headers: this.headers });
+  }
+
 }

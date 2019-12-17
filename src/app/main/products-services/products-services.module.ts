@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsServicesRoutingModule } from './products-services-routing.module';
 import { ProductsServicesMainComponent } from './products-services-main/products-services-main.component';
-import { MatToolbarModule, MatButtonModule, MatTableModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatTableModule, MatCardModule, MatTabsModule } from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -17,7 +17,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatButtonModule,
     ReactiveFormsModule,
     MatTableModule,
-    SharedModule
+    SharedModule,
+    MatCardModule,
+    MatTabsModule
   ]
 })
 export class ProductsServicesModule { }
