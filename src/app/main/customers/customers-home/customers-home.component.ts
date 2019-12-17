@@ -43,7 +43,7 @@ export class CustomersHomeComponent implements OnInit {
   }
   public getPatients() {
     this.apiService.getAllPatientList().subscribe((res) => {
-      this.arrPatients = res["data"];
+      this.arrPatients = res['data'];
       console.log(this.arrPatients);
     });
   }

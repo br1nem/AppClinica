@@ -16,7 +16,7 @@ export class EmployeeDialogComponent implements OnInit {
   employeeForm = this.fb.group({
     EMPLOYEE_ID: [ null, [Validators.required]],
     EMPLOYEE_NAME: ['', [Validators.required]],
-    CATEGORY_ID: ['', [Validators.required]],
+    CATEGORY_ID: [null, [Validators.required]],
     EMPLOYEE_START_DATE: ['', [Validators.required]],
     },
     { updateOn: 'blur' }
@@ -26,7 +26,7 @@ export class EmployeeDialogComponent implements OnInit {
     this.employeeForm.setValue({
       EMPLOYEE_ID: this.data.EMPLOYEE_ID,
       EMPLOYEE_NAME: this.data.EMPLOYEE_NAME || '',
-      CATEGORY_ID: this.data.CATEGORY_ID || '',
+      CATEGORY_ID: this.data.CATEGORY_ID,
       EMPLOYEE_START_DATE: this.data.EMPLOYEE_START_DATE || '',
     });
   }

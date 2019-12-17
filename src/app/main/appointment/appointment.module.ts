@@ -6,22 +6,29 @@ import { AppointmentHomeComponent } from './appointment-home/appointment-home.co
 import {FullCalendarModule} from '@fullcalendar/angular';
 import { MatToolbarModule, MatButtonModule, MatInputModule, MatDialogModule } from '@angular/material';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AppointmentDialogComponent } from './appointment-dialog/appointment-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    AppointmentHomeComponent
+    AppointmentHomeComponent,
+    AppointmentDialogComponent
   ],
   imports: [
     CommonModule,
     AppointmentRoutingModule,
     FullCalendarModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
     SharedModule
+  ],
+  entryComponents: [
+    AppointmentDialogComponent
   ]
 })
 export class AppointmentModule { }

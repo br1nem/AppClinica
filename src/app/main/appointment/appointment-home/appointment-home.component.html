@@ -1,14 +1,7 @@
 <app-navigation-bar></app-navigation-bar>
 
 <h1 class="header"> APPOINTMENTS</h1>
-<full-calendar
-defaultView="dayGridMonth"
-[plugins]="calendarPlugins"
-[weekends]="false"
-[events]="[
-  { title: 'Fisoterapia', date: '2019-12-11' },
-  { title: 'Dentista', date: '2019-12-12' }
-]"
-></full-calendar>
+<full-calendar defaultView="dayGridMonth" [selectable]="true" [plugins]="calendarPlugins" [weekends]="true"
+    [events]="calendarEvents" (dateClick)="handleDateClick($event)"></full-calendar>
 
 

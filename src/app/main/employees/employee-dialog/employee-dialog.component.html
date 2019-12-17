@@ -2,16 +2,16 @@
 <div mat-dialog-content>
   <form class="form-container" [formGroup]="employeeForm" (ngSubmit)="updateEmployee(this.data)">
     <mat-form-field>
-      <input  matInput type="number" placeholder="ID" formControlName="PATIENT_ID" readonly>
+      <input  matInput type="number" placeholder="ID" formControlName="EMPLOYEE_ID" readonly>
     </mat-form-field>
     <mat-form-field>
-      <input  matInput type="text" placeholder="Name" formControlName="PATIENT_NAME">
+      <input  matInput type="text" placeholder="Name" formControlName="EMPLOYEE_NAME">
     </mat-form-field>
     <mat-form-field>
-      <input   matInput type="text" placeholder="Surname" formControlName="PATIENT_SURNAME">
+      <input   matInput type="number" placeholder="category" formControlName="CATEGORY_ID">
     </mat-form-field>
     <mat-form-field>
-      <input   matInput type="tel" placeholder="Phone" formControlName="PATIENT_PHONE">
+      <input   matInput type="DATE" placeholder="Date" formControlName="EMPLOYEE_START_DATE">
     </mat-form-field>
     <button mat-raised-button color="primary"
           matTooltip="You are about to update a patient's profile"
