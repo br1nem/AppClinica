@@ -2,11 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Employee } from './employee';
 import { Patient } from './patients';
-<<<<<<< HEAD
 import { Appointment } from './appointment';
-=======
 import { Product } from './products';
->>>>>>> 37c09df04276da2960537257808993800c462f91
 
 @Injectable({
   providedIn: 'root'
