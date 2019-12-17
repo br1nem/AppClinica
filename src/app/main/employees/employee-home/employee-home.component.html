@@ -1,15 +1,5 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row #sidenav>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/main/employees'"> Employees</a>
-      <a mat-button [routerLink]="'/main/patients'"> Patients </a>
-      <a mat-button [routerLink]="'/main/appointment'"> Appointments </a>
-      <a mat-button [routerLink]="'/main/invoice'"> Invoice </a>
+<app-navigation-bar></app-navigation-bar>
 
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
 <h1 class="header">EMPLOYEES</h1>
 <form class="form-container" [formGroup]="employeeForm" (ngSubmit)="createEmployee()">
   <!-- <mat-form-field>
@@ -28,7 +18,7 @@
     <input matInput type="date" placeholder="Start date" formControlName="EMPLOYEE_START_DATE">
   </mat-form-field>
   <button mat-raised-button color="primary"
-        matTooltip="You are about to create a new patient"
+        matTooltip="You are about to create a new employee"
         aria-label="Button that displays a tooltip when focused or hovered over">
     Create
   </button>

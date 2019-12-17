@@ -1,15 +1,4 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row #sidenav>
-    <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/main/employees'"> Employees</a>
-      <a mat-button [routerLink]="'/main/patients'"> Patients </a>
-      <a mat-button [routerLink]="'/main/appointment'"> Appointments </a>
-      <a mat-button [routerLink]="'/main/invoice'"> Invoice </a>
-
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+<app-navigation-bar></app-navigation-bar>
 
 <h1 class="header"> PATIENTS</h1>
 <form class="form-container" [formGroup]="patientForm" (ngSubmit)="createPat()">
