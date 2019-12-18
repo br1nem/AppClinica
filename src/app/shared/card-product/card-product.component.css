@@ -5,3 +5,13 @@
  height: 300px;
  background-color: lightgrey;
 }
+
+mat-card-header {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+a.mat-button {
+  text-align: left;
+}

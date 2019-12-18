@@ -100,6 +100,12 @@ export class ApiService {
       { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
        'PRODUCT_PRICE'] }, { headers: this.headers });
   }
+
+  public getProductById(id: number) {
+    return this.httpClient.post(`${this.localUrl}/assets/product/search`,
+    { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
+    'PRODUCT_PRICE'], filter: { PRODUCT_ID: id } }, { headers: this.headers });
+  }
 // Methods for categories
   public getCategories(url?: string) {
     return this.httpClient.post(`${this.localUrl}/employees/category/search`,

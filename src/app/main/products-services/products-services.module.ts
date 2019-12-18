@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsServicesRoutingModule } from './products-services-routing.module';
 import { ProductsServicesMainComponent } from './products-services-main/products-services-main.component';
-import { MatToolbarModule, MatButtonModule, MatTableModule, MatCardModule, MatTabsModule } from '@angular/material';
-import {ReactiveFormsModule} from '@angular/forms';
+import {
+  MatToolbarModule, MatButtonModule, MatTableModule, MatCardModule, MatTabsModule, MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 @NgModule({
-  declarations: [ProductsServicesMainComponent],
+  declarations: [ProductsServicesMainComponent, ProductDetailComponent],
   imports: [
     CommonModule,
     ProductsServicesRoutingModule,
@@ -19,7 +23,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatTableModule,
     SharedModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class ProductsServicesModule { }

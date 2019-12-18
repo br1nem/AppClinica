@@ -1,7 +1,6 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ product.PRODUCT_NAME }}</mat-card-title>
+    <mat-card-title><a mat-button [routerLink]="['product', product.PRODUCT_ID]" color="primary">{{ product.PRODUCT_NAME }}</a></mat-card-title>
     <mat-card-subtitle>Price: {{product.PRODUCT_PRICE}}€   Stock: {{ product.PRODUCT_STOCK}} uds.</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188327.jpg" alt="Sample">
