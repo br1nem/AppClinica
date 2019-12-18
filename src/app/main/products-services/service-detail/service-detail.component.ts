@@ -42,9 +42,9 @@ export class ServiceDetailComponent implements OnInit {
 
   setForm() {
     this.serviceForm.setValue({
-      PRODUCT_ID: this.service.SERVICE_ID,
-      PRODUCT_NAME: this.service.SERVICE_NAME || '',
-      PRODUCT_PRICE: this.service.SERVICE_PRICE
+      SERVICE_ID: this.service.SERVICE_ID,
+      SERVICE_NAME: this.service.SERVICE_NAME || '',
+      SERVICE_PRICE: this.service.SERVICE_PRICE
     });
   }
 

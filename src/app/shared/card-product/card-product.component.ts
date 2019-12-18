@@ -8,6 +8,8 @@ import { Product } from 'src/app/products';
 })
 export class CardProductComponent implements OnInit {
 
+defaultUrl = 'https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188327.jpg';
+
 @Input() product: Product;
 
   constructor() { }

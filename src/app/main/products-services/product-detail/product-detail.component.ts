@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Product } from 'src/app/products';
@@ -13,17 +13,19 @@ export class ProductDetailComponent implements OnInit {
 
   productForm = this.fb.group(
     {
-      PRODUCT_ID: [ null, [Validators.required]],
+      PRODUCT_ID: [null, [Validators.required]],
       PRODUCT_NAME: ['', [Validators.required]],
-      SUPPLIER_ID: [ null, [Validators.required]],
-      CATEGORY_PRODUCT_ID: [null , [Validators.required]],
-      PRODUCT_STOCK: [null , [Validators.required]],
-      PRODUCT_PRICE: [ null, [Validators.required]]
+      SUPPLIER_ID: [null, [Validators.required]],
+      CATEGORY_PRODUCT_ID: [null, [Validators.required]],
+      PRODUCT_STOCK: [null, [Validators.required]],
+      PRODUCT_PRICE: [null, [Validators.required]],
+      PRODUCT_PHOTO: [null]
     },
     { updateOn: 'blur' }
   );
 
-  constructor( private route: ActivatedRoute, private apiService: ApiService, public fb: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService,
+              public fb: FormBuilder, private cd: ChangeDetectorRef) { }
 
   id: number;
   product: Product;
@@ -37,14 +39,15 @@ export class ProductDetailComponent implements OnInit {
 
 
   getProduct() {
-    this.apiService.getProductById(this.id).subscribe( res => {
+    this.apiService.getProductById(this.id).subscribe(res => {
       this.product = res['data'][0];
+      console.log(res['data'][0]);
       this.setForm();
     });
   }
 
   setForm() {
-    this.productForm.setValue({
+    this.productForm.patchValue({
       PRODUCT_ID: this.product.PRODUCT_ID,
       PRODUCT_NAME: this.product.PRODUCT_NAME || '',
       SUPPLIER_ID: this.product.SUPPLIER_ID,
@@ -54,8 +57,31 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  updateProduct() {
+  onFileChange(event) {
+    const reader = new FileReader();
 
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.productForm.patchValue({
+          PRODUCT_PHOTO: reader.result
+        });
+
+        // need to run CD since file load runs outside of zone
+        this.cd.markForCheck();
+      };
+    }
+  }
+
+  updateProduct() {
+    if (this.productForm.valid) {
+      console.log(this.productForm.getRawValue());
+      this.apiService.updateProduct(this.productForm.getRawValue()).subscribe(res => {
+        console.log('bien modificado');
+      })
+    }
   }
 
 }

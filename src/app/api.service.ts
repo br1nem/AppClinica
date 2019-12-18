@@ -98,13 +98,18 @@ export class ApiService {
   public getProducts() {
     return this.httpClient.post(`${this.localUrl}/assets/product/search`,
       { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
-       'PRODUCT_PRICE'] }, { headers: this.headers });
+       'PRODUCT_PRICE', 'PRODUCT_PHOTO'] }, { headers: this.headers });
   }
 
   public getProductById(id: number) {
     return this.httpClient.post(`${this.localUrl}/assets/product/search`,
     { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
-    'PRODUCT_PRICE'], filter: { PRODUCT_ID: id } }, { headers: this.headers });
+    'PRODUCT_PRICE', 'PRODUCT_PHOTO'], filter: { PRODUCT_ID: id } }, { headers: this.headers });
+  }
+
+  public updateProduct(product: Product ) {
+    return this.httpClient.put(`${this.localUrl}/assets/product`, { filter: { PRODUCT_ID: product.PRODUCT_ID }, data: product },
+      { headers: this.headers });
   }
 // Methods for categories
   public getCategories(url?: string) {

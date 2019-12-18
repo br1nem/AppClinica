@@ -1,41 +1,86 @@
 <app-navigation-bar></app-navigation-bar>
 
-
 <h1 *ngIf="product">{{ product.PRODUCT_NAME }}</h1>
-
-
-<form class="form-container" [formGroup]="productForm" (ngSubmit)="updateProduct()">
-
+<img *ngIf="product" [src]="product.PRODUCT_PHOTO" alt="photo" />
+<form
+  class="form-container"
+  [formGroup]="productForm"
+  (ngSubmit)="updateProduct()"
+>
   <mat-form-field>
-    <input matInput type="number" placeholder="ID" formControlName="PRODUCT_ID" readonly>
+    <input
+      matInput
+      type="number"
+      placeholder="ID"
+      formControlName="PRODUCT_ID"
+      readonly
+    />
   </mat-form-field>
 
   <div class="firstRow">
     <mat-form-field>
-      <input matInput type="text" placeholder="Name" formControlName="PRODUCT_NAME">
+      <input
+        matInput
+        type="text"
+        placeholder="Name"
+        formControlName="PRODUCT_NAME"
+      />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" placeholder="Supplier ID" formControlName="SUPPLIER_ID">
+      <input
+        matInput
+        type="number"
+        placeholder="Supplier ID"
+        formControlName="SUPPLIER_ID"
+      />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" placeholder="Category ID" formControlName="CATEGORY_PRODUCT_ID">
+      <input
+        matInput
+        type="number"
+        placeholder="Category ID"
+        formControlName="CATEGORY_PRODUCT_ID"
+      />
     </mat-form-field>
   </div>
 
   <div class="secondRow">
     <mat-form-field>
-      <input matInput type="number" placeholder="ID" formControlName="PRODUCT_ID" readonly>
+      <input
+        matInput
+        type="number"
+        placeholder="Stock"
+        formControlName="PRODUCT_STOCK"
+      />
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" placeholder="Stock" formControlName="PRODUCT_STOCK">
+      <input
+        matInput
+        type="number"
+        placeholder="Price"
+        formControlName="PRODUCT_PRICE"
+      />
     </mat-form-field>
-    <mat-form-field>
-      <input matInput type="number" placeholder="Price" formControlName="PRODUCT_PRICE">
-    </mat-form-field>
+    <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">
+      Choose File
+    </button>
+    <input
+      hidden
+      (change)="onFileChange($event)"
+      #fileInput
+      type="file"
+      id="file"
+      formControlName="PRODUCT_PHOTO"
+    />
   </div>
 
-  <button mat-raised-button color="primary" [disabled]="productForm.invalid"
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="productForm.invalid"
     matTooltip="You are about to update a patient's profile"
-    aria-label="Button that displays a tooltip when focused or hovered over">
+    aria-label="Button that displays a tooltip when focused or hovered over"
+  >
     Update
   </button>
+</form>
