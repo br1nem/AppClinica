@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { Component, OnInit, Inject, Optional, ɵConsole } from '@angular/core';
 import { Validators, FormBuilder} from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
@@ -15,7 +15,7 @@ export class AppointmentDialogComponent implements OnInit {
               @Optional() @Inject(MAT_DIALOG_DATA) public data, public apiService: ApiService) { }
 
   appointmentForm = this.fb.group({
-    APPOINTMENT_ID: [ null, [Validators.required]],
+    APPOINTMENT_ID: [ {value: null, disabled: 'true'}, [Validators.required]],
     EMPLOYEE_ID: [null, [Validators.required]],
     PATIENT_ID: [null, [Validators.required]],
     APPOINTMENT_DATE: ['', [Validators.required]],
@@ -23,10 +23,10 @@ export class AppointmentDialogComponent implements OnInit {
   { updateOn: 'blur' }
   );
 
+  maximo: number;
 
   ngOnInit() {
-    console.log("data");
-    console.log(this.data);
+    this.getMax();
     this.appointmentForm.setValue({
       APPOINTMENT_ID: this.data.APPOINTMENT_ID,
       EMPLOYEE_ID: this.data.EMPLOYEE_ID,
@@ -47,4 +47,11 @@ export class AppointmentDialogComponent implements OnInit {
     this.dialogRef.close(this.appointmentForm.value);
   }
 
+  public getMax() {
+    this.apiService.getMaxAppoinment().subscribe((res) => {
+      console.log(res);
+      const appointments = res['data'];
+      this.maximo = appointments[0].MAXIMO + 1;
+    });
+  }
 }

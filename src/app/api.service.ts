@@ -125,6 +125,13 @@ export class ApiService {
     , {headers: this.headers});
   }
 
+  public getMaxAppoinment() {
+    return this.httpClient.post(`${this.localUrl}/employees/maxAppointment/search`, {
+      columns: ['MAXIMO']
+    }
+    , {headers: this.headers});
+  }
+
   public createAppointment(appointment: Appointment) {
     return this.httpClient.post(`${this.localUrl}/employees/appointment`, { data: appointment }, { headers: this.headers });
   }
