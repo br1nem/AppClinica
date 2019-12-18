@@ -12,10 +12,6 @@ mat-form-field {
   display: flex;
 }
 
-.secondRow {
-  width: 100vw;
-  display: flex;
-}
 
 .mat-raised-button {
   margin: 20px;

@@ -141,4 +141,9 @@ export class ApiService {
       { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'] }, { headers: this.headers });
   }
 
+  public getServiceById(id: number) {
+    return this.httpClient.post(`${this.localUrl}/assets/service/search`,
+    { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'], filter: { SERVICE_ID: id } }, { headers: this.headers });
+  }
+
 }

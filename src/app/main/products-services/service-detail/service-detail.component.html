@@ -1,0 +1,26 @@
+<app-navigation-bar></app-navigation-bar>
+
+
+<h1 *ngIf="service">{{ service.SERVICE_NAME }}</h1>
+
+
+<form class="form-container" [formGroup]="serviceForm" (ngSubmit)="updateService()">
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="ID" formControlName="SERVICE_ID" readonly>
+  </mat-form-field>
+
+  <div class="firstRow">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Name" formControlName="SERVICE_NAME">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Service ID" formControlName="SERVICE_PRICE">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" [disabled]="serviceForm.invalid"
+    matTooltip="You are about to update a patient's profile"
+    aria-label="Button that displays a tooltip when focused or hovered over">
+    Update
+  </button>

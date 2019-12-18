@@ -10,10 +10,11 @@ import {
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ServiceDetailComponent } from './service-detail/service-detail.component';
 
 
 @NgModule({
-  declarations: [ProductsServicesMainComponent, ProductDetailComponent],
+  declarations: [ProductsServicesMainComponent, ProductDetailComponent, ServiceDetailComponent],
   imports: [
     CommonModule,
     ProductsServicesRoutingModule,
