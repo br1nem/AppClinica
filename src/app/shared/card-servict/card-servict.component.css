@@ -13,3 +13,8 @@
 a.mat-button {
   text-align: left;
 }
+
+img {
+  object-fit: contain;
+  height: 80%;
+}

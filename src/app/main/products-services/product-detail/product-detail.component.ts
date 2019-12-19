@@ -11,6 +11,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ProductDetailComponent implements OnInit {
 
+  defaultUrl = 'https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188327.jpg';
+
   productForm = this.fb.group(
     {
       PRODUCT_ID: [null, [Validators.required]],
@@ -19,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
       CATEGORY_PRODUCT_ID: [null, [Validators.required]],
       PRODUCT_STOCK: [null, [Validators.required]],
       PRODUCT_PRICE: [null, [Validators.required]],
-      PRODUCT_PHOTO: [null]
+      PRODUCT_PHOTO: []
     },
     { updateOn: 'blur' }
   );
@@ -47,13 +49,14 @@ export class ProductDetailComponent implements OnInit {
   }
 
   setForm() {
-    this.productForm.patchValue({
+    this.productForm.setValue({
       PRODUCT_ID: this.product.PRODUCT_ID,
       PRODUCT_NAME: this.product.PRODUCT_NAME || '',
       SUPPLIER_ID: this.product.SUPPLIER_ID,
       CATEGORY_PRODUCT_ID: this.product.CATEGORY_PRODUCT_ID,
       PRODUCT_STOCK: this.product.PRODUCT_STOCK,
-      PRODUCT_PRICE: this.product.PRODUCT_PRICE
+      PRODUCT_PRICE: this.product.PRODUCT_PRICE,
+      PRODUCT_PHOTO: this.product.PRODUCT_PHOTO
     });
   }
 
@@ -76,12 +79,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   updateProduct() {
-    if (this.productForm.valid) {
-      console.log(this.productForm.getRawValue());
+      console.log('Aqui', this.productForm.getRawValue());
       this.apiService.updateProduct(this.productForm.getRawValue()).subscribe(res => {
         console.log('bien modificado');
-      })
-    }
+      });
   }
 
 }

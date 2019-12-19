@@ -2,6 +2,7 @@
 
 
 <h1 *ngIf="service">{{ service.SERVICE_NAME }}</h1>
+<img *ngIf="service" [src]="service.SERVICE_PHOTO || defaultUrl" alt="photo" />
 
 
 <form class="form-container" [formGroup]="serviceForm" (ngSubmit)="updateService()">
@@ -15,12 +16,19 @@
       <input matInput type="text" placeholder="Name" formControlName="SERVICE_NAME">
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" placeholder="Service ID" formControlName="SERVICE_PRICE">
+      <input matInput type="number" placeholder="Price" formControlName="SERVICE_PRICE">
     </mat-form-field>
+    <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">
+      Choose File
+    </button>
+    <input hidden (change)="onFileChange($event)" #fileInput type="file" id="file" formControlName="SERVICE_PHOTO" />
+
   </div>
 
-  <button mat-raised-button color="primary" [disabled]="serviceForm.invalid"
+
+  <button mat-raised-button color="primary"
     matTooltip="You are about to update a patient's profile"
     aria-label="Button that displays a tooltip when focused or hovered over">
     Update
   </button>
+</form>
