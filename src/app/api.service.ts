@@ -4,6 +4,7 @@ import { Employee } from './employee';
 import { Patient } from './patients';
 import { Appointment } from './appointment';
 import { Product } from './products';
+import { Service } from './service';
 
 @Injectable({
   providedIn: 'root'
@@ -98,7 +99,18 @@ export class ApiService {
   public getProducts() {
     return this.httpClient.post(`${this.localUrl}/assets/product/search`,
       { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
-       'PRODUCT_PRICE'] }, { headers: this.headers });
+       'PRODUCT_PRICE', 'PRODUCT_PHOTO'] }, { headers: this.headers });
+  }
+
+  public getProductById(id: number) {
+    return this.httpClient.post(`${this.localUrl}/assets/product/search`,
+    { columns: ['PRODUCT_ID', 'PRODUCT_NAME', 'SUPPLIER_ID', 'CATEGORY_PRODUCT_ID', 'PRODUCT_STOCK',
+    'PRODUCT_PRICE', 'PRODUCT_PHOTO'], filter: { PRODUCT_ID: id } }, { headers: this.headers });
+  }
+
+  public updateProduct(product: Product ) {
+    return this.httpClient.put(`${this.localUrl}/assets/product`, { filter: { PRODUCT_ID: product.PRODUCT_ID }, data: product },
+      { headers: this.headers });
   }
 // Methods for categories
   public getCategories(url?: string) {
@@ -119,13 +131,36 @@ export class ApiService {
     , {headers: this.headers});
   }
 
+  public getMaxAppoinment() {
+    return this.httpClient.post(`${this.localUrl}/employees/maxAppointment/search`, {
+      columns: ['MAXIMO']
+    }
+    , {headers: this.headers});
+  }
+
   public createAppointment(appointment: Appointment) {
+    console.log("crear el appointment")
+    const auxEmployee = appointment.EMPLOYEE_ID.EMPLOYEE_ID;
+    const auxPatient = appointment.PATIENT_ID.PATIENT_ID;
+    appointment.EMPLOYEE_ID = auxEmployee;
+    appointment.PATIENT_ID = auxPatient;
     return this.httpClient.post(`${this.localUrl}/employees/appointment`, { data: appointment }, { headers: this.headers });
   }
   // Methods for services
   public getServices(url?: string) {
     return this.httpClient.post(`${this.localUrl}/assets/service/search`,
-      { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'] }, { headers: this.headers });
+      { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE', 'SERVICE_PHOTO'] }, { headers: this.headers });
   }
+
+  public getServiceById(id: number) {
+    return this.httpClient.post(`${this.localUrl}/assets/service/search`,
+    { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE', 'SERVICE_PHOTO'], filter: { SERVICE_ID: id } }, { headers: this.headers });
+  }
+
+  public updateService(service: Service ) {
+    return this.httpClient.put(`${this.localUrl}/assets/service`, { filter: { SERVICE_ID: service.SERVICE_ID }, data: service },
+      { headers: this.headers });
+  }
+
 
 }

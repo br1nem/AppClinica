@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AppointmentRoutingModule } from './appointment-routing.module';
 import { AppointmentHomeComponent } from './appointment-home/appointment-home.component';
 import {FullCalendarModule} from '@fullcalendar/angular';
-import { MatToolbarModule, MatButtonModule, MatInputModule, MatDialogModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatInputModule, MatDialogModule, MatSelectModule } from '@angular/material';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AppointmentDialogComponent } from './appointment-dialog/appointment-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
+    MatSelectModule,
     SharedModule
   ],
   entryComponents: [

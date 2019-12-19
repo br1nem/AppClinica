@@ -14,12 +14,13 @@ export class ProductsServicesMainComponent implements OnInit {
 
   productForm = this.ff.group(
     {
-      PRODUCT_ID: ['', [Validators.required]],
+      PRODUCT_ID: [null, [Validators.required]],
       PRODUCT_NAME: ['', [Validators.required]],
-      SUPPLIER_ID: ['', [Validators.required]],
-      CATEGORY_PRODUCT_ID: ['', [Validators.required]],
-      PRODUCT_STOCK: ['', [Validators.required]],
-      PRODUCT_PRICE: ['', [Validators.required]],
+      SUPPLIER_ID: [null, [Validators.required]],
+      CATEGORY_PRODUCT_ID: [null, [Validators.required]],
+      PRODUCT_STOCK: [null, [Validators.required]],
+      PRODUCT_PRICE: [null, [Validators.required]],
+      PRODUCT_PHOTO: [null, [Validators.required]],
     },
     { updateOn: 'blur' }
   );

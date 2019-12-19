@@ -1,0 +1,22 @@
+h1 {
+  padding: 20px;
+}
+
+mat-form-field {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.firstRow {
+  width: 90vw;
+  display: flex;
+}
+
+.secondRow {
+  width: 90vw;
+  display: flex;
+}
+
+.mat-raised-button {
+  margin: 20px;
+}

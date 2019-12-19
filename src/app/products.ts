@@ -5,6 +5,7 @@ export class Product {
   CATEGORY_PRODUCT_ID: number;
   PRODUCT_STOCK: number;
   PRODUCT_PRICE: number;
+  PRODUCT_PHOTO: string;
 }
 
 
