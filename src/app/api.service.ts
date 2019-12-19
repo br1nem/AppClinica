@@ -4,6 +4,7 @@ import { Employee } from './employee';
 import { Patient } from './patients';
 import { Appointment } from './appointment';
 import { Product } from './products';
+import { Service } from './service';
 
 @Injectable({
   providedIn: 'root'
@@ -143,12 +144,17 @@ export class ApiService {
   // Methods for services
   public getServices(url?: string) {
     return this.httpClient.post(`${this.localUrl}/assets/service/search`,
-      { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'] }, { headers: this.headers });
+      { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE', 'SERVICE_PHOTO'] }, { headers: this.headers });
   }
 
   public getServiceById(id: number) {
     return this.httpClient.post(`${this.localUrl}/assets/service/search`,
-    { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'], filter: { SERVICE_ID: id } }, { headers: this.headers });
+    { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE', 'SERVICE_PHOTO'], filter: { SERVICE_ID: id } }, { headers: this.headers });
+  }
+
+  public updateService(service: Service ) {
+    return this.httpClient.put(`${this.localUrl}/assets/service`, { filter: { SERVICE_ID: service.SERVICE_ID }, data: service },
+      { headers: this.headers });
   }
 
 }

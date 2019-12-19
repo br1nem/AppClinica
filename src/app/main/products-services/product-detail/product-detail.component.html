@@ -1,7 +1,7 @@
 <app-navigation-bar></app-navigation-bar>
 
 <h1 *ngIf="product">{{ product.PRODUCT_NAME }}</h1>
-<img *ngIf="product" [src]="product.PRODUCT_PHOTO" alt="photo" />
+<img *ngIf="product" [src]="product.PRODUCT_PHOTO || defaultUrl" alt="photo" />
 <form
   class="form-container"
   [formGroup]="productForm"
@@ -77,7 +77,6 @@
   <button
     mat-raised-button
     color="primary"
-    [disabled]="productForm.invalid"
     matTooltip="You are about to update a patient's profile"
     aria-label="Button that displays a tooltip when focused or hovered over"
   >
