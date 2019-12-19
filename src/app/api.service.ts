@@ -138,6 +138,11 @@ export class ApiService {
   }
 
   public createAppointment(appointment: Appointment) {
+    console.log("crear el appointment")
+    const auxEmployee = appointment.EMPLOYEE_ID.EMPLOYEE_ID;
+    const auxPatient = appointment.PATIENT_ID.PATIENT_ID;
+    appointment.EMPLOYEE_ID = auxEmployee;
+    appointment.PATIENT_ID = auxPatient;
     return this.httpClient.post(`${this.localUrl}/employees/appointment`, { data: appointment }, { headers: this.headers });
   }
   // Methods for services
@@ -150,5 +155,6 @@ export class ApiService {
     return this.httpClient.post(`${this.localUrl}/assets/service/search`,
     { columns: ['SERVICE_ID', 'SERVICE_NAME', 'SERVICE_PRICE'], filter: { SERVICE_ID: id } }, { headers: this.headers });
   }
+
 
 }

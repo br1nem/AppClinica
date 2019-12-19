@@ -11,6 +11,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 })
 export class AppointmentDialogComponent implements OnInit {
 
+
   constructor(private fb: FormBuilder, public dialogRef: MatDialogRef<AppointmentDialogComponent>,
               @Optional() @Inject(MAT_DIALOG_DATA) public data, public apiService: ApiService) { }
 
@@ -24,9 +25,13 @@ export class AppointmentDialogComponent implements OnInit {
   );
 
   maximo: number;
+  employees: [];
+  patients: [];
 
   ngOnInit() {
     this.getMax();
+    this.getEmployees();
+    this.getPatients();
     this.appointmentForm.setValue({
       APPOINTMENT_ID: this.data.APPOINTMENT_ID,
       EMPLOYEE_ID: this.data.EMPLOYEE_ID,
@@ -38,9 +43,9 @@ export class AppointmentDialogComponent implements OnInit {
 
   public createAppointment() {
     if (this.appointmentForm.valid) {
-      console.log(this.appointmentForm.value.APPOINTMENT_DATE);
+      /*console.log(this.appointmentForm.value.APPOINTMENT_DATE);
       const aux = (this.appointmentForm.value.APPOINTMENT_DATE).concat(':00Z');
-      this.appointmentForm.value.APPOINTMENT_DATE = aux;
+      this.appointmentForm.value.APPOINTMENT_DATE = aux;*/
       console.log(this.appointmentForm.value.APPOINTMENT_DATE);
       this.apiService.createAppointment(this.appointmentForm.value).subscribe();
     }
@@ -52,6 +57,21 @@ export class AppointmentDialogComponent implements OnInit {
       console.log(res);
       const appointments = res['data'];
       this.maximo = appointments[0].MAXIMO + 1;
+    });
+  }
+
+
+  public getEmployees() {
+    this.apiService.getEmployees().subscribe((res) => {
+      this.employees = res['data'];
+      console.log(this.employees);
+    });
+  }
+
+  public getPatients() {
+    this.apiService.getAllPatientList().subscribe((res) => {
+      this.patients = res['data'];
+      console.log(this.patients);
     });
   }
 }
